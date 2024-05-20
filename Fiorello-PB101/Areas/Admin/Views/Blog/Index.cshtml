@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BlogVM>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div class=" container mt-5">
+    <h2 class="text-center"> Blogs</h2>
+    <div class="create-operation">
+        <a asp-action="Create" class="btn btn-success text-white btn-sm">
+            <i class="ti-plus"></i>
+        </a>
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th> Description</th>
+                            <th>Created date</th>
+                            <td>Operations</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Title</td>
+                                <td> <img src="~/img/@item.Image" width="200px" height="90px  " /> </td>
+                                <td>@item.Description</td>
+                                <td>@item.CreatedDate</td>
+
+                                <td>
+                                    <a class="btn btn-primary text-white btn-sm" asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id"><i class="ti-info"></i></a>
+                                    <a class="btn btn-warning text-white btn-sm" asp-controller="Blog" asp-action="Edit" asp-route-id="@item.Id"><i class="ti-pencil-alt2"></i></a>
+
+                                    <form class="d-inline" method="post" asp-action="Delete" asp-route-id="@item.Id">
+                                        <button typep="submit" class="btn btn-danger text-white btn-sm"><i class="ti-trash"></i></button>
+                                    </form>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

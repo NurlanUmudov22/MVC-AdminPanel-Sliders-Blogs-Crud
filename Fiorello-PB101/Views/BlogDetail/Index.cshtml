@@ -1,0 +1,37 @@
+﻿ @model Blog
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@section css2 {
+    <link rel="stylesheet" href="~/css/blogdetail.css">
+
+}
+
+
+<div class='container-fluid'>
+    <div class="card mx-auto col-md-3 col-10 mt-5" data-id="@Model.Id">
+        <img class='mx-auto img-thumbnail'
+             src="~/img/@Model.Image"
+             width="auto" height="auto" />
+      
+        <div class="card-body text-center mx-auto">
+            <div class='cvp'>
+                <h5 class="card-title font-weight-bold">@Model.Title</h5>
+                <a href="#" class="btn details px-auto">@Model.Description</a><br />
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center  mt-3"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1" > <a asp-controller="Blog" asp-action="Index" style=" color: black">Back</a> </span> </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@* 
+
+Routunu gonderende template, blogdetail isleyir/ *kliki duzeltmek // duzeldi
+ *@

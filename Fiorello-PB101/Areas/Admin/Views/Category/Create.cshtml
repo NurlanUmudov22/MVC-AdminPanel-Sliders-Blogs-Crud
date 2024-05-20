@@ -1,0 +1,22 @@
+﻿@model CategoryCreateVM
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-5"> 
+        
+            <form method="post" asp-action="Create"enctype="multipart/form-data" >
+                <div class="form-group row" >
+                    <label class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-10">
+                        <input asp-for="Name" class="form-control form-control-normal" maxlength="100"  placeholder="Category name">
+                        <span  asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a  class="btn btn-light " asp-action="Index">Cancel</a>
+            </form>
+
+</div>
